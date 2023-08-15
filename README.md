@@ -1,27 +1,26 @@
 # Final Project
-## CBL Desk - Customer Support Ticket System
+# CBL Desk - Customer Support Ticket System
+By employing this ticket system and compiling information regarding equipment history, manufacturers will be enabled to offer more effective and optimized support for customer equipment. This is achieved by analysing intervention histories performed on identical or similar types of equipment, leading to more precise and rapid prediction of solutions required to address issues.
 
-By using this ticket system and collecting information on their equipment history, manufacturers will be able to provide a more effective and optimized support to the customer’s equipment, as they will be able to analyze the intervention history that has been carried out on the same or similar type of equipment, thus predicting with more accuracy and speed, the solutions needed to solve the problem.
+## Functionalities
 
-## Funcionalities
 ### 1) Users
-
-There are four default user types: Admin; Engineer; Technician; Customer.
+Four default user types are available: Admin, Engineer, Technician, Customer.
 
 ### 2) Tickets
-Different ticket status for each ticket stage:
-- New (when customer creates a new ticket)
-- Opened (when admin assigns a tech/eng to the ticket)
-- In Progress (when tech/eng start assistance)
-- Resolved (when tech/eng finish assistance)
-- Closed (when admin processes the resolved ticket)
+Distinct ticket statuses correspond to each stage:
+- New (when a customer initiates a new ticket)
+- Opened (when an admin assigns a technician/engineer to the ticket)
+- In Progress (when a technician/engineer commences assistance)
+- Resolved (when a technician/engineer concludes assistance)
+- Closed (when an admin finalizes the resolved ticket)
 
 ### 3) Knowledge base
-A database where collected data from assistances it's stored. It will be used for statistical data so that manufacturer could study and optimize their product/equipment production and also better optimize assistances by providing a know-how repairing equipment solutions.
+A database stores data gathered from assistance sessions, utilized for statistical analysis to enhance manufacturer insights into product/equipment production and optimize assistance by offering equipment repair know-how.
 
 ### 4) API's
-- Google Maps API: get routes, distance and travel time for tech/eng assistance report.
-- Cloudinary API: storage of photos added by the customer upon new ticket creation. Also for equipment and vehicle photo storage.
+- Google Maps API: Provides routes, distance, and travel time for technician/engineer assistance reports.
+- Cloudinary API: Facilitates storage of photos uploaded by customers during ticket creation, as well as equipment and vehicle images.
 
 ### 5) Technologies
 1. React
@@ -29,17 +28,17 @@ A database where collected data from assistances it's stored. It will be used fo
 3. Flask
 
 ## Main flow
-1) customer create a ticket
-2) admin assigns vehicle and tech/eng
-3) tech/eng opens ticket and start assistance
-4) tech/eng fills in report with all the data needed explaining what where the malfunctions encountered and solutions implemented
-5) tech/eng closes report
-6) customer report aproval by authenticating with his credentials
-7) tech/eng finishes assistance
-8) admin processes ticket
+1) Customer initiates a ticket
+2) Admin assigns vehicle and technician/engineer
+3) Technician/engineer opens ticket and initiates assistance
+4) Technician/engineer compiles a report detailing encountered malfunctions and implemented solutions
+5) Technician/engineer closes the report
+6) Customer approves the report using authentication credentials
+7) Technician/engineer completes assistance
+8) Admin finalizes the ticket
 
 ## Future features
-1. UI/UX improvement
-2. Data analyze to get statistical info about equipments to help the maker understand where they need to improve the equipments
-3. Websockets integration for realtime data update
-4. Notifications API integration for ticket stage user notification
+1. UI/UX enhancements
+2. Data analysis for equipment-related statistical insights to aid manufacturers in identifying areas for improvement
+3. Integration of Websockets for real-time data updates
+4. Integration of Notifications API for user notifications at various ticket stages4. Notifications API integration for ticket stage user notification
