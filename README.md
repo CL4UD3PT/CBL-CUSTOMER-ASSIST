@@ -3,9 +3,9 @@
 By employing this ticket system and compiling information regarding equipment history, manufacturers will be enabled to offer more effective and optimized support for customer equipment. This is achieved by analysing intervention histories performed on identical or similar types of equipment, leading to more precise and rapid prediction of solutions required to address issues.
 
 ## Technologies
-### Front-end
+### Front End
 - React
-### Back-end
+### Back End
 - Flask + SQLAlchemy
 ## Functionalities
 
