@@ -8,31 +8,36 @@ import EquipmentDescription from "../../../assets/img/help_description/Equipment
 
 export const CustomerEquipmentList = () => {
     const { actions, store } = useContext(Context);
+    const equipmentList = store.equipmentList;
     const location = useLocation();
-    const [equipmentSelected, setEquipmentSelected] = useState(store.equipmentList);
+    // const [equipmentSelected, setEquipmentSelected] = useState(store.equipmentList);
     const [equipmentVar, setEquipmentVar] = useState([]);
 
     useEffect(() => {
-        if (Object.keys(equipmentSelected).length === 0) setEquipmentVar(store.equipmentList)
-        else setEquipmentVar(equipmentSelected)
-    }, [equipmentSelected])
-
-    useEffect(() => {
-        // actions.getCustomerEquipment();
+        actions.getCustomerEquipment();
         // setEquipmentVar(store.equipmentList);
-        fetchData();
-        const storedEquipmentVar = sessionStorage.getItem('equipmentVar');
-        if (storedEquipmentVar) setEquipmentVar(JSON.parse(storedEquipmentVar))
+        // const storedEquipmentVar = sessionStorage.getItem('equipmentVar');
+        // if (storedEquipmentVar) setEquipmentVar(JSON.parse(storedEquipmentVar))
     }, []);
 
-    const fetchData = async () => {
-        await actions.getCustomerEquipment();
-        setEquipmentVar(store.equipmentList);
-    }
+    // useEffect(() => {
+    //     console.log("Equipment list: ", equipmentList);
+    // }, [equipmentList])
 
-    useEffect(() => {
-        sessionStorage.setItem('equipmentVar', JSON.stringify(equipmentVar));
-    }, [equipmentVar]);
+    // useEffect(() => {
+    //     if (Object.keys(equipmentSelected).length === 0) setEquipmentVar(store.equipmentList)
+    //     else setEquipmentVar(equipmentSelected)
+    // }, [equipmentSelected])
+
+
+    // const fetchData = async () => {
+    //     await actions.getCustomerEquipment();
+    //     // setEquipmentVar(store.equipmentList);
+    // }
+
+    // useEffect(() => {
+    //     sessionStorage.setItem('equipmentVar', JSON.stringify(equipmentVar));
+    // }, [equipmentVar]);
 
     const saveEquipment = (selected) => {
         const selectedEquipment = selected.map((select) => select);
@@ -55,7 +60,7 @@ export const CustomerEquipmentList = () => {
                     <div className="mb-3 p-3 col-sm-12 col-md-8 col-lg-8 mx-auto d-flex ">
                         <h5 className="me-3 mt-2">Equipment:</h5>
                         <Multiselect
-                            options={store.equipmentList}
+                            options={equipmentList}
                             displayValue="model"
                             placeholder="Select equipment"
                             onSelect={saveEquipment}
@@ -66,9 +71,9 @@ export const CustomerEquipmentList = () => {
                 <div className="bd-content ">
                     <div className="border rounded p-4 flex-fill">
                         <div>
-                            {Object.values(equipmentVar).length > 0 ? equipmentVar.map((item, i) => {
+                            {equipmentList?.map((item, i) => {
                                 return <EquipmentListCard key={i} data={item} />
-                            }) : <span>No equipment found..</span>}
+                            })}
                         </div>
                     </div>
                 </div>
