@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { Multiselect } from 'multiselect-react-dropdown';
 import { Context } from "../../store/appContext";
 import { EquipmentListCard } from "../../component/equipment_list_card";
-import { PageTitle } from "../../component/page_title";
 import { useLocation } from "react-router-dom";
 import EquipmentIMG from "../../../assets/img/help_description/Equipment-IMG.png";
 import EquipmentDescription from "../../../assets/img/help_description/Equipment-History-Google-Docs.png";
@@ -43,10 +42,7 @@ export const CustomerEquipmentList = () => {
     return (
         <main className="bd-main order-1 pe-4">
             <div className="bd-intro border-bottom d-flex justify-content-end">
-                {/* <h2>Equipment List</h2> */}
-                {/* <div className="bd-intro">
-                <PageTitle title={"Equipment List"} />
-            </div> */}
+
                 {/* <!-- Button trigger modal --> */}
                 <div>
                     <strong typeof="button" className="bd-links-heading btn d-flex w-100 align-items-center fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
