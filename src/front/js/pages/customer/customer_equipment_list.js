@@ -3,45 +3,23 @@ import { Multiselect } from 'multiselect-react-dropdown';
 import { Context } from "../../store/appContext";
 import { EquipmentListCard } from "../../component/equipment_list_card";
 import { useLocation } from "react-router-dom";
-import EquipmentIMG from "../../../assets/img/help_description/Equipment-IMG.png";
-import EquipmentDescription from "../../../assets/img/help_description/Equipment-History-Google-Docs.png";
+// import Select from 'react-select';
+// import EquipmentIMG from "../../../assets/img/help_description/Equipment-IMG.png";
+// import EquipmentDescription from "../../../assets/img/help_description/Equipment-History-Google-Docs.png";
 
 export const CustomerEquipmentList = () => {
     const { actions, store } = useContext(Context);
     const equipmentList = store.equipmentList;
     const location = useLocation();
-    // const [equipmentSelected, setEquipmentSelected] = useState(store.equipmentList);
-    const [equipmentVar, setEquipmentVar] = useState([]);
+    const [filteredEquipment, setFilteredEquipment] = useState([]);
 
     useEffect(() => {
         actions.getCustomerEquipment();
-        // setEquipmentVar(store.equipmentList);
-        // const storedEquipmentVar = sessionStorage.getItem('equipmentVar');
-        // if (storedEquipmentVar) setEquipmentVar(JSON.parse(storedEquipmentVar))
     }, []);
 
-    // useEffect(() => {
-    //     console.log("Equipment list: ", equipmentList);
-    // }, [equipmentList])
-
-    // useEffect(() => {
-    //     if (Object.keys(equipmentSelected).length === 0) setEquipmentVar(store.equipmentList)
-    //     else setEquipmentVar(equipmentSelected)
-    // }, [equipmentSelected])
-
-
-    // const fetchData = async () => {
-    //     await actions.getCustomerEquipment();
-    //     // setEquipmentVar(store.equipmentList);
-    // }
-
-    // useEffect(() => {
-    //     sessionStorage.setItem('equipmentVar', JSON.stringify(equipmentVar));
-    // }, [equipmentVar]);
-
-    const saveEquipment = (selected) => {
-        const selectedEquipment = selected.map((select) => select);
-        setEquipmentSelected(selectedEquipment);
+    const handleEquipment = (selectedOptions) => {
+        setFilteredEquipment(selectedOptions.map(option => option));
+        console.log(filteredEquipment);
     };
 
     return (
@@ -59,21 +37,46 @@ export const CustomerEquipmentList = () => {
                 <div>
                     <div className="mb-3 p-3 col-sm-12 col-md-8 col-lg-8 mx-auto d-flex ">
                         <h5 className="me-3 mt-2">Equipment:</h5>
+
+                        {/* APLICAR O REACT-SELECT NA PROCURA */}
+                        {/* <Select
+                                id="selectEquipment"
+                                className="basic-single mb-2"
+                                classNamePrefix="select"
+                                isSearchable={false}
+                                isClearable={true}
+                                isDisabled={false}
+                                // components={animatedComponents}
+                                options={equipmentList}
+                                // defaultValue={assignedVehicle}
+                                styles={{
+                                    control: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                    }),
+                                }}
+                                onChange={(newValue, actionMeta) => {
+                                    if (actionMeta.action === 'select-option') setSelectedCategoryID(newValue.id);
+                                    // if (actionMeta.action === 'clear') handleDismissVehicleFromTicket();
+                                }}
+                            /> */}
+                            
                         <Multiselect
-                            options={equipmentList}
+                            // options={filterByValues(equipmentList, 'model', equipmentSelected)}
+                            options = {equipmentList}
                             displayValue="model"
                             placeholder="Select equipment"
-                            onSelect={saveEquipment}
-                            onRemove={saveEquipment}
+                            onSelect={handleEquipment}
+                            onRemove={handleEquipment}
                         />
                     </div>
                 </div>
                 <div className="bd-content ">
                     <div className="border rounded p-4 flex-fill">
                         <div>
-                            {equipmentList?.map((item, i) => {
-                                return <EquipmentListCard key={i} data={item} />
-                            })}
+                            {filteredEquipment.length > 0
+                                ? filteredEquipment.map((item, i) => { return <EquipmentListCard key={i} data={item} /> })
+                                : equipmentList.map((item, i) => { return <EquipmentListCard key={i} data={item} /> })
+                            })
                         </div>
                     </div>
                 </div>
@@ -86,12 +89,12 @@ export const CustomerEquipmentList = () => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body d-flex">
-                            <div >
-                                <img className="p-2 me-4 border rounded-3" src="https://res.cloudinary.com/dsonpr8ip/image/upload/v1689793345/Equipment-History-Google-Docs_t62efj.png" />
-                            </div>
-                            <div >
-                                <img className="border rounded-3" style={{ height: "620px", width: "1200px" }} src="https://res.cloudinary.com/dsonpr8ip/image/upload/v1689793345/Equipment-IMG_fy2owf.png" />
-                            </div>
+                                <div >
+                                    <img className="p-2 me-4 border rounded-3" src="https://res.cloudinary.com/dsonpr8ip/image/upload/v1689793345/Equipment-History-Google-Docs_t62efj.png" />
+                                </div>
+                                <div >
+                                    <img className="border rounded-3" style={{ height: "620px", width: "1200px" }} src="https://res.cloudinary.com/dsonpr8ip/image/upload/v1689793345/Equipment-IMG_fy2owf.png" />
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
