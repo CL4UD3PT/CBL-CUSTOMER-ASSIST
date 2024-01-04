@@ -30,6 +30,7 @@ import { Footer } from "./component/footer"
 // import {CapturePhoto} from "./pages/customer/capture_photo";
 import { LandingPage } from "./pages/landing_page";
 import { AdminCreateCustomer } from "./pages/admin/admin-create-customer";
+import { AdminViewUser } from "./pages/admin/admin-view-user";
 
 
 const Layout = () => {
@@ -57,6 +58,7 @@ const Layout = () => {
                         <Route element={<AdminTickets />} path="/admin/tickets" />
                         <Route element={<AdminTickets />} path="/admin/tickets/:filter" />
                         <Route element={<AdminProcessTicket />} path="/admin/process/ticket" />
+                        <Route element={<AdminViewUser />} path="/admin/view/user/:id" />
                         <Route element={<EmployeeDashboard />} path="/employee/dashboard" />
                         <Route element={<EmployeeEditProfile />} path="/employee/edit/profile" />
                         <Route element={<EmployeeTicketAssistance />} path="/employee/ticket/assistance" />

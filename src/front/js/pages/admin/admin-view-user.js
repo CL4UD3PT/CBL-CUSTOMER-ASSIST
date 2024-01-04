@@ -1,12 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 
 export const AdminViewUser = () => {
+    const { id } = useParams();
     const { store, actions } = useContext(Context);
     const [user, setUser] = useState(true)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log("admin/view/user/id: ", id);
+    }, [])
 
     const handleUser = (event) => {
         setUser(event.target.value === "1")

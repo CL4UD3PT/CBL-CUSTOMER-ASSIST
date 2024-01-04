@@ -7,35 +7,37 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../../styles/contact_list.css";
 
 export const AdminContactList = () => {
-    const { store, actions } = useContext(Context)
-    const [searchName, setSearchName] = useState("")
-    const customer = store.contactList.customer
-    const employee = store.contactList.employee
-
+    const { store, actions } = useContext(Context);
+    const [searchName, setSearchName] = useState("");
+    const customer = store.contactList.customer;
+    const employee = store.contactList.employee;
+    const navigate = useNavigate();
     const handleSearch = (event) => {
         setSearchName(event.target.value);
     }
 
     const filterCustomer = customer.filter(item =>
         item.company_name.toLowerCase().includes(searchName.toLowerCase()));
-    
+
     const filterEmployees = employee.filter(item =>
         item.first_name.toLowerCase().includes(searchName.toLowerCase()));
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         actions.getContactList();
     }, []);
+
+    const handleRow = (item) => {
+        console.log(item.id);
+        navigate(`/admin/view/user/${item.id}`)
+    }
 
 
     // console.log(filterEmployees)
     return (
         <main className="bd-main order-1 pe-4">
-            {/* <div className="bd-intro">
-                <PageTitle title={"All Users"} />
-            </div> */}
             <div className="bd-content">
                 <div className="d-flex justify-content-center">
-                    <div className="input-group mb-2 w-25">
+                    <div className="input-group mb-2 w-100">
                         <div className="form-floating">
                             <input
                                 type="text"
@@ -47,7 +49,7 @@ export const AdminContactList = () => {
                                 value={searchName}
                                 onChange={handleSearch}
                             />
-                            <label htmlFor="floatingInput"><i className="fa-solid fa-magnifying-glass" />    Search</label>
+                            <label htmlFor="floatingInput"><i className="fa-solid fa-magnifying-glass" /></label>
                         </div>
                     </div>
                 </div>
@@ -62,10 +64,7 @@ export const AdminContactList = () => {
                                 type="button"
                                 role="tab"
                                 aria-controls="nav-home"
-                                aria-selected="true"
-                            >
-                                Customer
-                            </button>
+                                aria-selected="true">Customer</button>
                         </li>
                         <li className="nav-item" role="presentation">
                             <button
@@ -76,10 +75,7 @@ export const AdminContactList = () => {
                                 type="button"
                                 role="tab"
                                 aria-controls="nav-profile"
-                                aria-selected="false"
-                            >
-                                Employee
-                            </button>
+                                aria-selected="false">Employee</button>
                         </li>
                     </ul>
                     <div className="tab-content" id="nav-tabContent">
@@ -103,7 +99,7 @@ export const AdminContactList = () => {
                                         {filterCustomer
                                             .map((item, i) => {
                                                 return (
-                                                    <tr key={item.id} className="row-height nowrap">
+                                                    <tr key={item.id} onClick={() => handleRow(item)} className="row-height nowrap">
                                                         <th scope="row">{item.id}</th>
                                                         <td className="cell-padding cell-padding-left">{item.company_name}</td>
                                                         <td className="cell-padding">{item.phone}</td>
@@ -115,7 +111,7 @@ export const AdminContactList = () => {
                                                     </tr>)
                                             })}
                                     </tbody>
-                                </table> : <h5 className="p-3">No contacts founds..</h5>}
+                                </table> : <h5 className="p-3">No contacts found...</h5>}
                             </div>
                         </div>
                         {/* Employees Below */}
@@ -143,7 +139,7 @@ export const AdminContactList = () => {
                                                     </tr>)
                                             })}
                                     </tbody>
-                                </table> : <h5 className="p-3">No contacts founds..</h5>}
+                                </table> : <h5 className="p-3">No contacts found...</h5>}
                             </div>
                         </div>
                     </div>
