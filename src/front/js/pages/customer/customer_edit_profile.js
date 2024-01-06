@@ -5,26 +5,15 @@ import { Navigate, useNavigate } from "react-router-dom";
 export const CustomerEditProfile = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
-    const [title, setTitle] = useState("Profile");
     const [updateProfile, setUpdateProfile] = useState({ 'user_info': {}, 'customer_info': {}, 'employee_info': {} })
     const [editProfile, setEditProfile] = useState(false);
-    const [disabled, setDisabled] = useState(false);
+    const toast = (title, data) => actions.userToastAlert(title, data);
+    const title = "Profile";
     const userInfo = store.userProfile.user_info;
     const customerInfo = store.userProfile.customer_info;
 
-    const toggleTitle = () => {
-        if (disabled === false) setTitle("Edit Profile");
-        else setTitle("Profile")
-    }
-
-    const toggleProfileEdit = () => { setDisabled(!disabled) }
-
     const handleInput = (info, key) => {
         return (e) => {
-            // const input = { ...updateProfile[info], [key]: e.target.value };
-            // const inputs = { ...updateProfile, [info]: input };
-            // setUpdateProfile(inputs);
-
             setUpdateProfile({
                 ...updateProfile, [info]: {
                     ...updateProfile[info],
@@ -39,25 +28,23 @@ export const CustomerEditProfile = () => {
 
         // check for empty keys and delete them
         for (const key of Object.keys(newData)) {
-            console.count("empty");
             if (Object.keys(newData[key]).length === 0) delete newData[key];
         }
 
         // only submits data if the object is not empty
         if (Object.keys(newData).length !== 0) {
-            console.log('submit')
             const response = await actions.updateUserProfile(newData);
+
             if (response[0] === 200) {
                 await actions.updateUserProfileLocally(newData);
                 actions.userToastAlert("Profile", "Profile updated successfully!");
                 navigate('/customer/dashboard');
                 return true;
             }
-            alert(response[1]);
+            toast("Customer Edit Profile", response[1]);
         } else {
-            alert('No data to update');
+            toast("Customer Edit Profile",'No data to update');
         }
-
     }
 
     return (
