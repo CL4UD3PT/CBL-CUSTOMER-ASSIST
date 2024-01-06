@@ -83,7 +83,9 @@ class User(db.Model):
                 "id": self.employee.id,
                 "first_name": self.employee.first_name,
                 "last_name": self.employee.last_name,
-                "available": self.employee.available
+                "available": self.employee.available,
+                "email": self.email,
+                "role": self.user_type.type
             }
 
         return data

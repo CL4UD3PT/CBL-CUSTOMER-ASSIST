@@ -17,3 +17,8 @@ export function formatDate(date) {
         ].join(':')
     );
 }
+
+export function CapitalizeFirst(word) {
+    word = word.toLowerCase();
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+}

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export const ViewCustomer = (props) => {
     const { user } = props;
-    const editProfile = 'false';
-    const title = 'Profile'
+    const editProfile = false;
+    const title = 'Profile';
+
+    useEffect(()=>{
+        console.log(!editProfile)
+    },[])
 
     return (
         <>
@@ -29,6 +33,7 @@ export const ViewCustomer = (props) => {
                                     placeholder="Company name"
                                     disabled={!editProfile}
                                     value={user?.company_name}
+                                    readOnly
                                     required />
                                 <label htmlFor="companyName">Company Name</label>
                             </div>
@@ -43,7 +48,8 @@ export const ViewCustomer = (props) => {
                                     id="contactPerson"
                                     placeholder="Contact person name"
                                     disabled={!editProfile}
-                                    value={user?.contact_person} />
+                                    value={user?.contact_person}
+                                    readOnly />
                                 <label htmlFor="contactPerson">Contact person</label>
                             </div>
                         </div>
@@ -59,7 +65,8 @@ export const ViewCustomer = (props) => {
                                     id="companyEmail"
                                     placeholder="company.email@adress.com"
                                     disabled={!editProfile}
-                                    value={user?.company_email} />
+                                    value={user?.company_email}
+                                    readOnly />
                                 <label htmlFor="companyEmail">Company email address</label>
                             </div>
                         </div>
@@ -73,7 +80,8 @@ export const ViewCustomer = (props) => {
                                     id="phone"
                                     placeholder="Phone number"
                                     disabled={!editProfile}
-                                    value={user?.phone} />
+                                    value={user?.phone}
+                                    readOnly />
                                 <label htmlFor="phone">Phone number</label>
                             </div>
                         </div>
@@ -90,7 +98,8 @@ export const ViewCustomer = (props) => {
                                     id="address_1"
                                     placeholder="Street..."
                                     disabled={!editProfile}
-                                    value={user?.address_1} />
+                                    value={user?.address_1}
+                                    readOnly />
                                 <label htmlFor="address_1">Adress 1</label>
                             </div>
                         </div>
@@ -104,7 +113,8 @@ export const ViewCustomer = (props) => {
                                     id="address_2"
                                     placeholder="Street..."
                                     disabled={!editProfile}
-                                    value={user?.address_2} />
+                                    value={user?.address_2}
+                                    readOnly />
                                 <label htmlFor="address_2">Adress 2</label>
                             </div>
                         </div>
@@ -122,6 +132,7 @@ export const ViewCustomer = (props) => {
                                     placeholder="Enter zipcode"
                                     disabled={!editProfile}
                                     value={user?.zipcode}
+                                    readOnly
                                     required />
                                 <label htmlFor="zipcode">Zipcode</label>
                             </div>
@@ -135,6 +146,7 @@ export const ViewCustomer = (props) => {
                                     placeholder="Enter city"
                                     disabled={!editProfile}
                                     value={user?.city}
+                                    readOnly
                                     required />
                                 <label htmlFor="city">City</label>
                             </div>

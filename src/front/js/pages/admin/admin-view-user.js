@@ -9,9 +9,7 @@ export const AdminViewUser = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
     const location = useLocation();
-    const title = 'User';
     const user = location.state;
-    const editProfile = false;
 
     useEffect(() => {
         console.log(user);
