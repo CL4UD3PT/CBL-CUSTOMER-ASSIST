@@ -12,6 +12,11 @@ export const AdminContactList = () => {
     const customer = store.contactList.customer;
     const employee = store.contactList.employee;
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        actions.getContactList();
+    }, []);
+    
     const handleSearch = (event) => {
         setSearchName(event.target.value);
     }
@@ -22,17 +27,11 @@ export const AdminContactList = () => {
     const filterEmployees = employee.filter(item =>
         item.first_name.toLowerCase().includes(searchName.toLowerCase()));
 
-    useEffect(() => {
-        actions.getContactList();
-    }, []);
-
     const handleRow = (item) => {
         console.log(item.id);
         navigate(`/admin/view/user/${item.id}`)
     }
 
-
-    // console.log(filterEmployees)
     return (
         <main className="bd-main order-1 pe-4">
             <div className="bd-content">
@@ -79,6 +78,7 @@ export const AdminContactList = () => {
                         </li>
                     </ul>
                     <div className="tab-content" id="nav-tabContent">
+
                         {/* Customers Below */}
                         <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="customer" tabIndex="0">
                             <div className="shadow px-4 mb-5 rounded table-container" >
@@ -114,6 +114,7 @@ export const AdminContactList = () => {
                                 </table> : <h5 className="p-3">Loading Contacts List...</h5>}
                             </div>
                         </div>
+
                         {/* Employees Below */}
                         <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="employee" tabIndex="0">
 
