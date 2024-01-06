@@ -15,5 +15,9 @@
     },
     "[css]": {
         "editor.defaultFormatter": "MikeBovenlander.formate"
-    }
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "python.analysis.typeCheckingMode": "basic"
 }

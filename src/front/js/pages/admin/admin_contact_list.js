@@ -27,9 +27,9 @@ export const AdminContactList = () => {
     const filterEmployees = employee.filter(item =>
         item.first_name.toLowerCase().includes(searchName.toLowerCase()));
 
-    const handleRow = (item) => {
-        console.log(item.id);
-        navigate(`/admin/view/user/${item.id}`)
+    const handleRow = (user, userType) => {
+        user.type = userType;
+        navigate(`/admin/view/user/`, { state: user });
     }
 
     return (
@@ -99,7 +99,7 @@ export const AdminContactList = () => {
                                         {filterCustomer
                                             .map((item, i) => {
                                                 return (
-                                                    <tr key={item.id} onClick={() => handleRow(item)} className="row-height nowrap">
+                                                    <tr key={item.id} onClick={() => handleRow(item, 'customer')} className="row-height nowrap">
                                                         <th scope="row">{item.id}</th>
                                                         <td className="cell-padding cell-padding-left">{item.company_name}</td>
                                                         <td className="cell-padding">{item.phone}</td>
@@ -132,7 +132,7 @@ export const AdminContactList = () => {
                                         {filterEmployees
                                             .map((item, i) => {
                                                 return (
-                                                    <tr key={item.id} className="row-height nowrap">
+                                                    <tr key={item.id} onClick={() => handleRow(item, 'employee')} className="row-height nowrap">
                                                         <th scope="row">{item.id}</th>
                                                         <td className="cell-padding cell-padding-left">{item.first_name}</td>
                                                         <td className="cell-padding">{item.last_name}</td>
