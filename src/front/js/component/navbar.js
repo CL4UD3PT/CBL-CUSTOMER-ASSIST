@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Navigate, Link, useNavigate } from "react-router-dom";
+import { CapitalizeFirst } from "../../utils/my-functions";
 
 //include your index.scss file into the bundle
 import "../../styles/navbar.css";
@@ -44,7 +45,7 @@ export const Navbar = () => {
 				{userName !== "" || userName !== undefined ?
 					<div className="text-white me-2 text-end  lh-1">
 						<p className="m-0 fw-semibold">{userName}</p>
-						<p className="m-0 fst-italic" style={{ fontSize: ".75rem" }}>{userType}</p>
+						<p className="m-0 fst-italic" style={{ fontSize: ".75rem" }}>{CapitalizeFirst(userType)}</p>
 					</div>
 					: null
 				}
