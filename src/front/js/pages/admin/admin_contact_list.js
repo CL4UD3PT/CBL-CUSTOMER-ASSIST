@@ -111,7 +111,7 @@ export const AdminContactList = () => {
                                                     </tr>)
                                             })}
                                     </tbody>
-                                </table> : <h5 className="p-3">No contacts found...</h5>}
+                                </table> : <h5 className="p-3">Loading Contacts List...</h5>}
                             </div>
                         </div>
                         {/* Employees Below */}
@@ -139,7 +139,7 @@ export const AdminContactList = () => {
                                                     </tr>)
                                             })}
                                     </tbody>
-                                </table> : <h5 className="p-3">No contacts found...</h5>}
+                                </table> : <h5 className="p-3">Loading Contacts List...</h5>}
                             </div>
                         </div>
                     </div>
