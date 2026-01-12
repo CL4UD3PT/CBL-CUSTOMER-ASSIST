@@ -56,7 +56,7 @@ def handle_invalid_usage(error):
 # TABLE VALUES INITIALIZATIOn
 def table_initialize(table, file_name ):
     if len(table.query.all()) == 0:  
-        with open ("src/table_initial_values/" + file_name) as file:
+        with open("src/table_initial_values/" + file_name, encoding="utf-8") as file:
             data = json.load(file)
         items = [table(**item) for item in data]
         db.session.bulk_save_objects(items)

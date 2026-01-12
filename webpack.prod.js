@@ -8,7 +8,6 @@ module.exports = merge(common, {
     },
     plugins: [
         new Dotenv({
-            safe: true,
             systemvars: true
         })
     ]
