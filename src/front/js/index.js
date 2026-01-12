@@ -1,6 +1,6 @@
 //import react into the bundle
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from 'react-router-dom';
 
 //include your index.scss file into the bundle
@@ -12,9 +12,9 @@ import Layout from "./layout";
 const basename = process.env.BASENAME || "";
 
 //render your react application
-ReactDOM.render(
+const root = createRoot(document.querySelector("#app"));
+root.render(
     <Router basename={basename}>
         <Layout />
-    </Router>,
-    document.querySelector("#app")
+    </Router>
 );
