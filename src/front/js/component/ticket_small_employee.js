@@ -70,7 +70,7 @@ export const TicketSmallEmployee = (props) => {
 
 
     return (
-        <div className="card w-100 mb-5"
+        <div data-debug="ticket-small-employee" className="card w-100 mb-5"
             style={{
                 borderColor: handleStatusColor(ticket.status),
             }}>

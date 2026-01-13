@@ -30,13 +30,13 @@ export const EmployeeTicketAssistance = () => {
 
 
     return (
-        <main className="bd-main">
+        <main className="bd-main" data-debug="employee-ticket-assistance-page">
             {ticketStage > 0 ?
                 <>
                     <CustomerInfo />
                     <TicketInfo />
                     <EquipmentInfoCard />
-                    <div className="mb-3">
+                    <div className="mb-3" style={{ height: "400px", borderRadius: "0.375rem" }}>
                         <MapInfo addresses={mapInfo} isMarkerShown />
                     </div>
                     <VehicleInfoCard />
