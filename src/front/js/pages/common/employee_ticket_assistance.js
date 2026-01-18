@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { CustomerInfo } from "../../component/ticket_assistance/customer_info";
 import { TicketInfo } from "../../component/ticket_assistance/ticket_info";
 import { InterventionTypes } from "../../constants/intervention_types";
+import { useGoogleMapsScript } from "../../hooks/useGoogleMapsScript";
 import { MapInfo } from "../../component/ticket_assistance/map_info";
 import { EquipmentInfoCard } from "../../component/ticket_assistance/equipment_info_card";
 import { ModalEquipmentHistory } from "../../component/ticket_assistance/modal_equipment_history";
@@ -12,42 +13,59 @@ import { KnowledgeAssistanceReport } from "../../component/ticket_assistance/kno
 
 export const EmployeeTicketAssistance = () => {
     const { store, actions } = useContext(Context);
-    console.log("localStorage ticketStage", localStorage.getItem('ticketStage'))
+
     const ticketStage = store.ticketStage;
-    const cat = store.categoryOptions;
     const customerInfo = store.assignedTicket.customer;
+
     const mapInfo = {
         origin: store.manufacturerAddress,
-        destination: customerInfo.address_1 + ", " + customerInfo.address_2 + " " + customerInfo.zipcode + " " + customerInfo.city,
+        destination:
+            customerInfo.address_1 +
+            ", " +
+            customerInfo.address_2 +
+            " " +
+            customerInfo.zipcode +
+            " " +
+            customerInfo.city,
     };
-    
-    useEffect(()=>{
+
+    // 🔥 Carrega o script do Google Maps apenas nesta página
+    const scriptLoaded = useGoogleMapsScript("AIzaSyCkyaErg173zIQoEmdsruVsHllNYLGlczk");
+
+    useEffect(() => {
         actions.getCategories();
         actions.getKnowledgeList();
-        const localStorageTicketStage = localStorage.getItem('ticketStage') ? JSON.parse(localStorage.getItem('ticketStage')) : null;
-        localStorageTicketStage ? actions.setTicketStage(localStorageTicketStage) : actions.setTicketStage(0);
-    }, [])
 
+        const localStorageTicketStage = localStorage.getItem("ticketStage")
+            ? JSON.parse(localStorage.getItem("ticketStage"))
+            : null;
+
+        localStorageTicketStage
+            ? actions.setTicketStage(localStorageTicketStage)
+            : actions.setTicketStage(0);
+    }, []);
 
     return (
         <main className="bd-main" data-debug="employee-ticket-assistance-page">
-            {ticketStage > 0 ?
+            {ticketStage > 0 ? (
                 <>
                     <CustomerInfo />
                     <TicketInfo />
                     <EquipmentInfoCard />
-                    <div className="mb-3" style={{ height: "400px", borderRadius: "0.375rem" }}>
-                        <MapInfo addresses={mapInfo} isMarkerShown />
-                    </div>
+
+                    {/* Só renderiza o mapa quando o script estiver carregado */}
+                    {scriptLoaded 
+                        ? (<MapInfo addresses={mapInfo} isMarkerShown />)
+                        : (<div>A carregar o mapa...</div>)
+                    }
+                    
                     <VehicleInfoCard />
                 </>
-                : null
-            }
-            {ticketStage >= 3 ?
-                <KnowledgeAssistanceReport />
-                : null
-            }
-            <ModalEquipmentHistory /> {/* this one needs to be the last element of <main> */}
+            ) : null}
+
+            {ticketStage >= 3 ? <KnowledgeAssistanceReport /> : null}
+
+            <ModalEquipmentHistory />
         </main>
     );
 };

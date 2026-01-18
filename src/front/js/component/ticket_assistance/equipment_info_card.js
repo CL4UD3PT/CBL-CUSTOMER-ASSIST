@@ -6,7 +6,7 @@ export const EquipmentInfoCard = () => {
   const data = store.assignedTicket.equipment;
 
   return (
-    <div className="mb-3">
+    <div className="mb-3" data-debug="equipment-info-card">
       <h4 className="border-bottom">Equipment Information</h4>
       <div className="card mb-3 px-3 py-2">
         <div className="row g-0">
