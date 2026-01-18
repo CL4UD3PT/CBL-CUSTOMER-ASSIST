@@ -1,56 +1,75 @@
-import React, { useEffect, useState } from "react";
-import { compose, withProps } from "recompose";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
+import React, { useEffect, useState, useCallback } from "react";
 
-export const MapInfo = compose(
-  withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOcxTSXvSDDWIP9DyVSDLqMYEApldW_yQ&v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: "100%" }} />,
-    containerElement: <div style={{ height: "400px", marginBottom: "50px" }} />,
-    mapElement: <div style={{ height: "100%", borderRadius: "0.375rem" }} />,
-  }),
-  withScriptjs,
-  withGoogleMap
-)((props) => {
-  const [directions, setDirections] = useState(null);
+export const MapInfo = ({ addresses }) => {
+  const [map, setMap] = useState(null);
   const [distance, setDistance] = useState(null);
   const [duration, setDuration] = useState(null);
 
+  const origin = addresses.origin;
+  const destination = addresses.destination;
+
+  const fetchDirections = useCallback(
+    async (mapInstance) => {
+      if (!origin || !destination) return;
+
+      const { DirectionsService, DirectionsRenderer } =
+        await google.maps.importLibrary("routes");
+
+      const service = new DirectionsService();
+
+      service.route(
+        {
+          origin,
+          destination,
+          travelMode: "DRIVING"
+        },
+        (result, status) => {
+          if (status === "OK") {
+            const leg = result.routes[0].legs[0];
+            setDistance(leg.distance.text);
+            setDuration(leg.duration.text);
+
+            const renderer = new DirectionsRenderer();
+            renderer.setMap(mapInstance);
+            renderer.setDirections(result);
+          }
+        }
+      );
+    },
+    [origin, destination]
+  );
+
   useEffect(() => {
-    const directionsService = new window.google.maps.DirectionsService();
+    const initMap = async () => {
+      const { Map } = await google.maps.importLibrary("maps");
 
-    const origin = props.addresses.origin;
-    const destination = props.addresses.destination;
-    const isAddress = typeof destination === "string";
+      const mapInstance = new Map(document.getElementById("map"), {
+        center: { lat: 40.9, lng: -8.6 },
+        zoom: 8
+      });
 
-    const request = {
-      origin,
-      [isAddress ? "destination" : "destinationLatLng"]: isAddress
-        ? { query: destination }
-        : destination,
-      travelMode: window.google.maps.TravelMode.DRIVING,
+      setMap(mapInstance);
+      fetchDirections(mapInstance);
     };
 
-    directionsService.route(request, (result, status) => {
-      if (status === window.google.maps.DirectionsStatus.OK) {
-        setDirections(result);
-
-        const route = result.routes[0];
-        const legs = route.legs[0];
-
-        setDistance(legs.distance.text);
-        setDuration(legs.duration.text);
-      } else {
-        console.error("Error fetching directions:", status);
-      }
-    });
-  }, [props.destination]);
+    initMap();
+  }, [fetchDirections]);
 
   return (
-    <GoogleMap className="mb-3" defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-      {directions && <DirectionsRenderer directions={directions} />}
-        {distance && <div><strong>Distance: </strong>{distance}</div>}
-        {duration && <div><strong>Duration: </strong>{duration}</div>}
-    </GoogleMap>
+    <div className="mb-3" data-debug="map-info">
+      <div style={{ marginBottom: "50px" }}>
+        <div id="map" style={{ height: "400px" }} />
+        {distance && <div><strong>Distance:</strong> {distance}</div>}
+        {duration && <div><strong>Duration:</strong> {duration}</div>}
+        <button onClick={() => {
+          const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(addresses.origin)}&destination=${encodeURIComponent(addresses.destination)}`;
+          window.open(url, "_blank");
+        }} className="btn btn-primary">
+          Abrir no Google Maps
+        </button>
+
+
+      </div>
+    </div>
   );
-});
+};

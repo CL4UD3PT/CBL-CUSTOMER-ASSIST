@@ -12,7 +12,7 @@ export const TicketInfo = () => {
     data.customer_media = store.assignedTicket.ticket.customer_media;
 
     return (
-        <div className="mb-3">
+        <div className="mb-3" data-debug="ticket-info">
             <h4 className="border-bottom">Ticket Information</h4>
             <div className="card">
                 <div className="card-header d-flex flex-wrap">

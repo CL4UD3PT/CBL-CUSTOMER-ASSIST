@@ -6,7 +6,7 @@ export const CustomerInfo = () => {
     const data = store.assignedTicket.customer;
 
     return (
-        <div className="mb-3">
+        <div className="mb-3" data-debug="customer-info">
             <h4 className="border-bottom">Customer Information</h4>
             <div className="d-flex flex-wrap">
                 <div className="col-12 col-sm-6">

@@ -140,8 +140,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				try {
 					const response = await fetch(process.env.BACKEND_URL + "api/token", opts);
-					const data = await response.json();
+					
+					let data = {};
+					try {
+						data = await response.json();
+					} catch {
+						data = {};
+					}
 
+					if (response.status !== 200) {
+						return [response.status, "Bad user email or password!"];
+					}
+
+					await getActions().sessionStorageAndSetStoreDataSave('token', data.access_token);
+					return [200, data.user_type];
+					/*
+					const data = await response.json();
+					
 					if (response.status !== 200) {
 						return ([response.status, 'Bad user email or password!']);
 					}
@@ -149,10 +164,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					await getActions().sessionStorageAndSetStoreDataSave('token', data.access_token);
 					return ([response.status, data.user_type]);
+					*/
 				}
 				catch (error) {
 					// console.log("Contact service support", error);
-					return (["error", error]);
+					// return (["error", error]);
+					return ["error", "Unable to connect to server! Please try again later."];
 				}
 			},
 
