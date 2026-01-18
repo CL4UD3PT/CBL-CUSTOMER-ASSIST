@@ -82,4 +82,4 @@ const LayoutPage = () => {
     );
 };
 
-export default injectContext(Layout);
+export default injectContext(LayoutPage);
