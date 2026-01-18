@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useLocation } from "react-router-dom";
-import { CustomerSidebar } from "./customerSidebar";
-import { AdminSidebar } from "./adminSidebar";
-import { EmployeeSidebar } from "./employee_sidebar";
+import { CustomerSidebar } from "./CustomerSidebar";
+import { AdminSidebar } from "./AdminSidebar";
+import { EmployeeSidebar } from "./EmployeeSidebar";
 
 export const Sidebar = () => {
     const { store, actions } = useContext(Context);

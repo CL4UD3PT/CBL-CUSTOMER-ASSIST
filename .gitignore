@@ -81,3 +81,7 @@ database.db
 diagram.png
 __pycache__/
 migrations
+
+# other directories
+Unused/
+backup_before_update/

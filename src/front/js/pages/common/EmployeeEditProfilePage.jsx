@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
-export const EmployeeEditProfile = () => {
+export const EmployeeEditProfilePage = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
     const [title, setTitle] = useState("Profile");

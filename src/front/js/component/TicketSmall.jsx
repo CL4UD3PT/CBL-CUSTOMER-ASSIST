@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { TicketStatusColor } from '../constants/ticket_status_color';
+import { TicketStatusColor } from '../constants/ticketStatusColor';
 import { useNavigate } from "react-router-dom";
 
 export const TicketSmall = (props) => {

@@ -32,12 +32,12 @@ export const ContactList = (props) => {
                         return (
                             <tr key={item.id}>
                                 <td>{i + 1}</td>
-                                <td>{item.}</td>
-                                <td>{item.}</td>
-                                <td>{item.}</td>
-                                <td>{item.}</td>
-                                <td>{item.}</td>
-                                <td>{item.}</td>
+                                <td>{item}</td>
+                                <td>{item}</td>
+                                <td>{item}</td>
+                                <td>{item}</td>
+                                <td>{item}</td>
+                                <td>{item}</td>
                             </tr>)
                     })}
                 </tbody>

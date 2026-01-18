@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { PageTitle } from "../../component/page_title";
+import { PageTitle } from "../../component/PageTitle";
 import { Link, useNavigate } from "react-router-dom";
 
 //include your index.scss file into the bundle
 import "../../../styles/contact_list.css";
 
-export const AdminContactList = () => {
+export const AdminContactListPage = () => {
     const { store, actions } = useContext(Context);
     const [searchName, setSearchName] = useState("");
     const customer = store.contactList.customer;

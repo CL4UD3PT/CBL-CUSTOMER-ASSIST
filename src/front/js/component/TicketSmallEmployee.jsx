@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { TicketStatusColor } from '../constants/ticket_status_color';
+import { TicketStatusColor } from '../constants/ticketStatusColor';
 import { useNavigate } from "react-router-dom";
 import { padTo2Digits, formatDate } from "../../utils/my-functions";
 

@@ -1,18 +1,19 @@
 import React, {useContext} from "react";
 import { Context } from "../../store/appContext";
-import { CarouselItem } from "./carousel_item";
-import { InterventionTypes } from "../../constants/intervention_types";
+import { CarouselItem } from "../ticket_assistance/carouselItem";
+import { InterventionTypes } from "../../constants/interventionTypes";
 
 import "../../../styles/carousel.css"
 
-export const TicketInfo = () => {
+export const ProcessTicketInfo = () => {
     const { actions, store} = useContext(Context);
-    const data = store.assignedTicket.ticket;
+    const ticket = store.processTicket;
 
-    data.customer_media = store.assignedTicket.ticket.customer_media;
+    // TODO: substitute with url's from cloudinary retrieved from database
+    ticket.customer_media = store.processTicket.customer_media;
 
     return (
-        <div className="mb-3" data-debug="ticket-info">
+        <div className="mb-3">
             <h4 className="border-bottom">Ticket Information</h4>
             <div className="card">
                 <div className="card-header d-flex flex-wrap">
@@ -20,7 +21,7 @@ export const TicketInfo = () => {
                     {/* TICKET ID */}
                     <div className="col-6">
                         <div className="text-start">
-                            <h6><i className="fa-solid fa-ticket me-1"></i>{data.id}</h6>
+                            <h6><i className="fa-solid fa-ticket me-1"></i>{ticket.id}</h6>
                         </div>
                     </div>
 
@@ -28,7 +29,7 @@ export const TicketInfo = () => {
                     {/* INTERVENTION TYPE */}
                     <div className="col-6">
                         <div className="text-end">
-                            <h6><i className="fa-solid fa-screwdriver-wrench me-1"></i>{data.interventionType ? InterventionTypes.ASSISTANCE : InterventionTypes.MAINTENANCE }</h6>
+                            <h6><i className="fa-solid fa-screwdriver-wrench me-1"></i>{ticket.interventionType ? InterventionTypes.ASSISTANCE : InterventionTypes.MAINTENANCE }</h6>
                         </div>
                     </div>
                 </div>
@@ -39,14 +40,14 @@ export const TicketInfo = () => {
                     <li className="list-group-item">
                         {/* <div className="card-body"> */}
                         <p className="card-title"><i className="fa-solid fa-circle-question me-1" style={{ color: "#689ffd" }}></i><strong>Subject</strong></p>
-                        <p className="card-text">{data.subject}</p>
+                        <p className="card-text">{ticket.subject}</p>
                         {/* </div> */}
                     </li>
 
                     {/* DESCRIPTION */}
                     <li className="list-group-item">
                         <p className="card-title"><i className="fa-solid fa-square-pen me-1" style={{ color: "#689ffd" }}></i><strong>Description</strong></p>
-                        <p className="card-text">{data.description}</p>
+                        <p className="card-text">{ticket.description}</p>
                     </li>
 
                     {/* CAROUSEL */}
@@ -54,9 +55,9 @@ export const TicketInfo = () => {
                         <p className="card-title"><i className="fa-solid fa-photo-film me-1" style={{ color: "#689ffd" }}></i><strong>Photos from Customer</strong></p>
                         <div id="carouselExample" className="carousel slide pointer-event">
                             <div className="carousel-inner rounded-bottom">
-                                {data.customer_media.length > 0 ?
-                                    data.customer_media.map((url, i) => {
-                                        return <CarouselItem key={i} url={data.customer_media[i]} index={i} />
+                                {ticket.customer_media.length > 0 ?
+                                    ticket.customer_media.map((url, i) => {
+                                        return <CarouselItem key={i} url={ticket.customer_media[i]} index={i} />
                                     }) :
                                     null
                                 }
@@ -73,8 +74,6 @@ export const TicketInfo = () => {
                     </li>
                 </ul>
             </div>
-
-            {/* CARROUSEL */}
 
         </div>
     );
