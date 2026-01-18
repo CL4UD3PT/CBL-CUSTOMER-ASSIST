@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmallEmployee } from "../../component/ticket_small_employee";
-import { PageTitle } from "../../component/page_title"
+import { TicketSmallEmployee } from "../../component/TicketSmallEmployee";
+import { PageTitle } from "../../component/PageTitle"
 
-export const EmployeeDashboard = () => {
+export const EmployeeDashboardPage = () => {
     const { store, actions } = useContext(Context);
     const ticket = store.assignedTicket;
 

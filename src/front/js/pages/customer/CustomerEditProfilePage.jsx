@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
-export const CustomerEditProfile = () => {
+export const CustomerEditProfilePage = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
     const [updateProfile, setUpdateProfile] = useState({ 'user_info': {}, 'customer_info': {}, 'employee_info': {} })

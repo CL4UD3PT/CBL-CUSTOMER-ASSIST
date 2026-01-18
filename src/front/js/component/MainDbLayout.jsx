@@ -3,11 +3,11 @@ import { Context } from "../store/appContext";
 import { useLocation } from "react-router-dom";
 
 import smallLogo from "../../assets/img/logo.png";
-import { ProcessTicketInfo } from "./process_ticket/process_ticket_info";
-import { ProcessCustomerInfo } from "./process_ticket/process_customer_info";
-import { ProcessEquipmentInfoCard } from "./process_ticket/process_equipment_info_card";
-import { ProcessVehicleInfoCard } from "./process_ticket/process_vehicle_info_card";
-import { ProcessKnowledgeAssistanceReport } from "./process_ticket/process_knowledge_assistance_report";
+import { ProcessTicketInfo } from "./process_ticket/ProcessTicketInfo";
+import { ProcessCustomerInfo } from "./process_ticket/ProcessCustomerInfo";
+import { ProcessEquipmentInfoCard } from "./process_ticket/ProcessEquipmentInfoCard";
+import { ProcessVehicleInfoCard } from "./process_ticket/ProcessVehicleInfoCard";
+import { ProcessKnowledgeAssistanceReport } from "./process_ticket/ProcessKnowledgeAssistanceReport";
 
 
 export const MainBdLayout = ({ children }) => {

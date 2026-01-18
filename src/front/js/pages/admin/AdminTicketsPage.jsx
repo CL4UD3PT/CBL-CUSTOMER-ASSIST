@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmall } from "../../component/ticket_small";
-import { InfoCard } from "../../component/info_card";
+import { TicketSmall } from "../../component/TicketSmall";
+import { InfoCard } from "../../component/InfoCard";
 import { NavLink, Link, useParams } from "react-router-dom";
-import { PageTitle } from "../../component/page_title";
-import { TicketStatusColor } from "../../constants/ticket_status_color";
+import { PageTitle } from "../../component/PageTitle";
+import { TicketStatusColor } from "../../constants/ticketStatusColor";
 
 import "../../../styles/admin_tickets.css";
 
-export const AdminTickets = () => {
+export const AdminTicketsPage = () => {
     const { store, actions } = useContext(Context)
     const userType = store.userProfile.user_info.user_type;
     const { filter } = useParams();

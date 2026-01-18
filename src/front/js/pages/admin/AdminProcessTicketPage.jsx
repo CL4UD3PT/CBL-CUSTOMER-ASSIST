@@ -3,14 +3,14 @@ import { Context } from "../../store/appContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from 'react-select';
 
-import { ProcessCustomerInfo } from "../../component/process_ticket/process_customer_info";
-import { ProcessTicketInfo } from "../../component/process_ticket/process_ticket_info";
-import { ProcessEquipmentInfoCard } from "../../component/process_ticket/process_equipment_info_card";
-import { ProcessVehicleInfoCard } from "../../component/process_ticket/process_vehicle_info_card";
-import { ProcessKnowledgeAssistanceReport } from "../../component/process_ticket/process_knowledge_assistance_report";
-import { PageTitle } from "../../component/page_title";
+import { ProcessCustomerInfo } from "../../component/process_ticket/ProcessCustomerInfo";
+import { ProcessTicketInfo } from "../../component/process_ticket/ProcessTicketInfo";
+import { ProcessEquipmentInfoCard } from "../../component/process_ticket/ProcessEquipmentInfoCard";
+import { ProcessVehicleInfoCard } from "../../component/process_ticket/ProcessVehicleInfoCard";
+import { ProcessKnowledgeAssistanceReport } from "../../component/process_ticket/ProcessKnowledgeAssistanceReport";
+import { PageTitle } from "../../component/PageTitle";
 
-export const AdminProcessTicket = () => {
+export const AdminProcessTicketPage = () => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
     // const location = useLocation();

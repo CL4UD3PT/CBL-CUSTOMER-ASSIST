@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmallCustomer } from "../../component/ticket_small_customer";
+import { TicketSmallCustomer } from "../../component/TicketSmallCustomer";
 import DashboardExplained from "../../../assets/img/help_description/Dashboard-Google-Docs.png"
 import DashboardHelpImg from "../../../assets/img/help_description/DashboardHelpImage.png"
-import {PageTitle} from "../../component/page_title";
+import {PageTitle} from "../../component/PageTitle";
 
-export const CustomerDashboard = () => {
+export const CustomerDashboardPage = () => {
     const { store, actions } = useContext(Context);
     const customerAllowedTicketStatus = ['New', 'Opened', 'In Progress', 'Resolved'];
 

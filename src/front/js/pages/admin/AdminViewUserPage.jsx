@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../store/appContext";
+import { Context } from "../../store/appContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ViewCustomer } from "../../component/forms/view-customer.jsx";
-import { ViewEmployee } from "../../component/forms/view-employee.jsx";
+import { ViewCustomer } from "../../component/forms/ViewCustomer.jsx";
+import { ViewEmployee } from "../../component/forms/ViewEmployee.jsx";
 
 
-export const AdminViewUser = () => {
+export const AdminViewUserPage = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
     const location = useLocation();

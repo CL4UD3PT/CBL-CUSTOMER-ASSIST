@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { EquipmentHistoryCard } from "../../component/equipment_history_cards";
-import { PageTitle } from "../../component/page_title";
+import { EquipmentHistoryCard } from "../../component/EquipmentHistoryCards";
+import { PageTitle } from "../../component/PageTitle";
 import { NavLink, useLocation } from "react-router-dom";
 
-export const CustomerEquipmentHistory = () => {
+export const CustomerEquipmentHistoryPage = () => {
     const { store, actions } = useContext(Context)
     const location = useLocation();
     // console.log(store.tickets)

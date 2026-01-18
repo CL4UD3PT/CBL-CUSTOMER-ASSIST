@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import "../styles/index.css";
 
 //import your own components
-import Layout from "./layout";
+import LayoutPage from "./LayoutPage";
 
 const basename = process.env.BASENAME || "";
 
@@ -15,6 +15,6 @@ const basename = process.env.BASENAME || "";
 const root = createRoot(document.querySelector("#app"));
 root.render(
     <Router basename={basename}>
-        <Layout />
+        <LayoutPage />
     </Router>
 );

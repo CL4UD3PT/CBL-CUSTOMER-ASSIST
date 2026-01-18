@@ -3,7 +3,7 @@ import { Context } from "../../store/appContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
 
-export const CreateAdmin = () => {
+export const AdminCreateAdmin = () => {
     
     const [company, setCompany] = useState("");
     const [email, setEmail] = useState("");
