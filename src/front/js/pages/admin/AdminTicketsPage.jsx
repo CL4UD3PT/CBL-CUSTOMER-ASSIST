@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmall } from "../../component/TicketSmall";
-import { InfoCard } from "../../component/InfoCard";
 import { NavLink, Link, useParams } from "react-router-dom";
-import { PageTitle } from "../../component/PageTitle";
+import { TicketSmall } from "../../components/TicketSmall";
 import { TicketStatusColor } from "../../constants/ticketStatusColor";
+// TODO: import { InfoCard } from "../../component/ui/InfoCard";
+// TODO: import { PageTitle } from "../../component/PageTitle";
 
 import "../../../styles/admin_tickets.css";
 

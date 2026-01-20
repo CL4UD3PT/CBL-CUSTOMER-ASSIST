@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Context } from "../store/appContext";
-import { TicketStatusColor } from '../constants/ticketStatusColor'
+import { Context } from "../../../store/appContext";
+import { TicketStatusColor } from '../../../constants/ticketStatusColor'
 
 export const TicketSmallCustomer = (props) => {
     const { actions, store } = useContext(Context);

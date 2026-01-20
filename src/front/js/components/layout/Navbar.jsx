@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 import { Navigate, Link, useNavigate } from "react-router-dom";
-import { CapitalizeFirst } from "../../utils/my-functions";
+import { CapitalizeFirst } from "../../../utils/my-functions";
 
 //include your index.scss file into the bundle
-import "../../styles/navbar.css";
+import "../../../styles/navbar.css";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);

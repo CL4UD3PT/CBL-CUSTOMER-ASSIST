@@ -1,11 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { useNavigate } from "react-router-dom";
-import { PageTitle } from "../../component/PageTitle"
 import { object } from "prop-types";
 import Select from "react-select";
-import UploadWidget from "../../component/UploadWidget";
-
+import {UploadWidget} from "../../components/ui/UploadWidget";
+// TODO: import { PageTitle } from "../../component/PageTitle"
 
 export const AdminCreateTicketPage = () => {
     const { store, actions } = useContext(Context);

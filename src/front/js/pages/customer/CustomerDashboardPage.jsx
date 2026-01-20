@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmallCustomer } from "../../component/TicketSmallCustomer";
-import DashboardExplained from "../../../assets/img/help_description/Dashboard-Google-Docs.png"
-import DashboardHelpImg from "../../../assets/img/help_description/DashboardHelpImage.png"
-import {PageTitle} from "../../component/PageTitle";
+import { TicketSmallCustomer } from "../../components/roles/customer/TicketSmallCustomer";
+// TODO: import DashboardExplained from "../../../assets/img/help_description/Dashboard-Google-Docs.png"
+// TODO: import DashboardHelpImg from "../../../assets/img/help_description/DashboardHelpImage.png"
+// TODO: import {PageTitle} from "../../component/PageTitle";
 
 export const CustomerDashboardPage = () => {
     const { store, actions } = useContext(Context);

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
 export const EquipmentListCard = (props) => {
     const { store, actions } = useContext(Context)

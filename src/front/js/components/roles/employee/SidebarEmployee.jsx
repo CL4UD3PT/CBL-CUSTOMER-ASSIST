@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../../store/appContext";
 import { Navigate, Link, useNavigate, NavLink, useLocation } from "react-router-dom";
 
-export const EmployeeSidebar = () => {
+export const SidebarEmployee = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 	const location = useLocation();

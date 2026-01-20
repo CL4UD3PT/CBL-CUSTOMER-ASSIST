@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { EquipmentHistoryCard } from "../../component/EquipmentHistoryCards";
-import { PageTitle } from "../../component/PageTitle";
 import { NavLink, useLocation } from "react-router-dom";
+import { EquipmentHistoryCard } from "../../components/equipment/EquipmentHistoryCards";
+// TODO: import { PageTitle } from "../../component/PageTitle";
 
 export const CustomerEquipmentHistoryPage = () => {
     const { store, actions } = useContext(Context)

@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { InfoCard } from "../../component/InfoCard";
+import { InfoCard } from "../../components/ui/InfoCard";
 import { Link, useNavigate } from "react-router-dom";
 
 //include your index.scss file into the bundle
 import "../../../styles/info_card.css";
 import "../../../styles/sidebar.css";
 import "../../../styles/dashboard.css";
-import { PageTitle } from "../../component/PageTitle";
+// TODO: import { PageTitle } from "../../component/PageTitle";
 
 
 export const AdminDashboardPage = () => {

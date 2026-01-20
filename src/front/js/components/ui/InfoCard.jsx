@@ -1,5 +1,5 @@
 import React from "react";
-import { TicketStatusColor } from "../constants/ticketStatusColor";
+import { TicketStatusColor } from "../../constants/ticketStatusColor";
 
 export const InfoCard = (props) => {
     const data = props.data;

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { TicketSmallEmployee } from "../../component/TicketSmallEmployee";
-import { PageTitle } from "../../component/PageTitle"
+import { PageTitle } from "../../components/ui/PageTitle"
+import { TicketSmallEmployee } from "../../components/roles/employee/TicketSmallEmployee";
 
 export const EmployeeDashboardPage = () => {
     const { store, actions } = useContext(Context);

@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
-import { Navigate, useNavigate } from "react-router-dom";
-import { CustomerInfo } from "../../component/ticket_assistance/CustomerInfo";
-import { TicketInfo } from "../../component/ticket_assistance/TicketInfo";
-import { InterventionTypes } from "../../constants/interventionTypes";
+import { CustomerInfo } from "../../components/ticket_assistance/CustomerInfo";
+import { TicketInfo } from "../../components/ticket_assistance/TicketInfo";
+import { MapInfo } from "../../components/ticket_assistance/MapInfo";
+import { EquipmentInfoCard } from "../../components/ticket_assistance/EquipmentInfoCard";
+import { ModalEquipmentHistory } from "../../components/ticket_assistance/ModalEquipmentHistory";
+import { VehicleInfoCard } from "../../components/ticket_assistance/VehicleInfoCard";
+import { KnowledgeAssistanceReport } from "../../components/ticket_assistance/KnowledgeAssistanceReport";
 import { useGoogleMapsScript } from "../../hooks/useGoogleMapsScript";
-import { MapInfo } from "../../component/ticket_assistance/MapInfo";
-import { EquipmentInfoCard } from "../../component/ticket_assistance/EquipmentInfoCard";
-import { ModalEquipmentHistory } from "../../component/ticket_assistance/ModalEquipmentHistory";
-import { VehicleInfoCard } from "../../component/ticket_assistance/VehicleInfoCard";
-import { KnowledgeAssistanceReport } from "../../component/ticket_assistance/KnowledgeAssistanceReport";
+// TODO: import { Navigate, useNavigate } from "react-router-dom";
+// TODO: import { InterventionTypes } from "../../constants/interventionTypes";
 
 export const EmployeeTicketAssistancePage = () => {
     const { store, actions } = useContext(Context);
