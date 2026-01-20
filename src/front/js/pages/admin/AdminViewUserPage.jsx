@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ViewCustomer } from "../../component/forms/ViewCustomer.jsx";
-import { ViewEmployee } from "../../component/forms/ViewEmployee.jsx";
+import { ViewCustomer } from "../../components/forms/ViewCustomer.jsx";
+import { ViewEmployee } from "../../components/forms/ViewEmployee.jsx";
 
 
 export const AdminViewUserPage = () => {

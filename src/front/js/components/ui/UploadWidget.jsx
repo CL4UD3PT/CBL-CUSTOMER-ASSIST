@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
-const UploadWidget = () => {
+export const UploadWidget = () => {
     const { actions, store } = useContext(Context);
     const cloudinaryRef = useRef();
     const widgetRef = useRef();
@@ -32,5 +32,3 @@ const UploadWidget = () => {
         </button>
     )
 }
-
-export default UploadWidget;

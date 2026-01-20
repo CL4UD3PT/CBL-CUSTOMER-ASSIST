@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 import { useLocation } from "react-router-dom";
-
-import smallLogo from "../../assets/img/logo.png";
-import { ProcessTicketInfo } from "./process_ticket/ProcessTicketInfo";
-import { ProcessCustomerInfo } from "./process_ticket/ProcessCustomerInfo";
-import { ProcessEquipmentInfoCard } from "./process_ticket/ProcessEquipmentInfoCard";
-import { ProcessVehicleInfoCard } from "./process_ticket/ProcessVehicleInfoCard";
-import { ProcessKnowledgeAssistanceReport } from "./process_ticket/ProcessKnowledgeAssistanceReport";
-
+import { ProcessTicketInfo } from "../process_ticket/ProcessTicketInfo";
+import { ProcessCustomerInfo } from "../process_ticket/ProcessCustomerInfo";
+import { ProcessEquipmentInfoCard } from "../process_ticket/ProcessEquipmentInfoCard";
+import { ProcessVehicleInfoCard } from "../process_ticket/ProcessVehicleInfoCard";
+import { ProcessKnowledgeAssistanceReport } from "../process_ticket/ProcessKnowledgeAssistanceReport";
+import smallLogo from "../../../assets/img/logo.png";
 
 export const MainBdLayout = ({ children }) => {
     const { store, actions } = useContext(Context);

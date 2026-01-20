@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { EquipmentListCard } from "../../component/EquipmentListCard";
-import { useLocation } from "react-router-dom";
 import Select from 'react-select';
+import { useLocation } from "react-router-dom";
+import { EquipmentListCard } from "../../components/equipment/EquipmentListCard";
 
 export const CustomerEquipmentListPage = () => {
     const { actions, store } = useContext(Context);

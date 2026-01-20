@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import injectContext from "./store/appContext";
 import { BrowserRouter, Route, Router, Routes, useLocation } from "react-router-dom";
-import { Navbar } from "./component/Navbar";
-import { Sidebar } from "./component/sidebar";
-import { MainBdLayout } from "./component/MainDbLayout";
+import { Navbar } from "./components/layout/Navbar";
+import { Sidebar } from "./components/layout/Sidebar";
+import { MainBdLayout } from "./components/layout/MainDbLayout";
 import { LandingPage } from "./pages/LandingPage";
 import { AdminTicketsPage } from "./pages/admin/AdminTicketsPage";
 import { AdminDashboardPage } from "./pages/admin/AdminDashboardPage";
@@ -12,17 +12,16 @@ import { AdminCreateTicketPage } from "./pages/admin/AdminCreateTicketPage";
 import { AdminProcessTicketPage } from "./pages/admin/AdminProcessTicketPage";
 import { AdminCreateCustomerPage } from "./pages/admin/AdminCreateCustomerPage";
 import { AdminViewUserPage } from "./pages/admin/AdminViewUserPage";
-import { EmployeeDashboardPage } from "./pages/common/EmployeeDashboardPage"
-import { EmployeeEditProfilePage } from "./pages/common/EmployeeEditProfilePage";
+import { EmployeeDashboardPage } from "./pages/employee/EmployeeDashboardPage"
+import { EmployeeEditProfilePage } from "./pages/employee/EmployeeEditProfilePage";
+import { EmployeeTicketAssistancePage } from "./pages/employee/EmployeeTicketAssistancePage";
 import { CustomerDashboardPage } from "./pages/customer/CustomerDashboardPage";
 import { CustomerEditProfilePage } from "./pages/customer/CustomerEditProfilePage";
 import { CustomerCreateTicketPage } from "./pages/customer/CustomerCreateTicketPage";
 import { CustomerEquipmentListPage } from "./pages/customer/CustomerEquipmentListPage";
 import { CustomerEquipmentHistoryPage } from "./pages/customer/CustomerEquipmentHistory";
-import { EmployeeTicketAssistancePage } from "./pages/common/EmployeeTicketAssistancePage";
-import { LoadingData } from "./component/LoadingData";
-
-import { Footer } from "./component/Footer"
+import { LoadingData } from "./components/ui/LoadingData"; 
+// TODO: import { Footer } from "./component/Footer"
 // import { CustomerHelpGuide } from "./pages/customer/customer_help_guide"
 // import { Home } from "./pages/home";
 // import { Single } from "./pages/single";
@@ -30,6 +29,7 @@ import { Footer } from "./component/Footer"
 // import { CreateTech } from "./pages/technician/tech-create";
 // import { CreateCustomer } from "./pages/customer/customer-create.js";
 // import {CapturePhoto} from "./pages/customer/capture_photo";
+
 
 
 const LayoutPage = () => {

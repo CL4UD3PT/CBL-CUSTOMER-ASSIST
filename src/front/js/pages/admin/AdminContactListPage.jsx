@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { PageTitle } from "../../component/PageTitle";
+//TODO: import { PageTitle } from "../../component/ui/PageTitle";
 import { Link, useNavigate } from "react-router-dom";
 
 //include your index.scss file into the bundle

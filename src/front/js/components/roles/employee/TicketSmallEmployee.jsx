@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Context } from "../store/appContext";
-import { TicketStatusColor } from '../constants/ticketStatusColor';
+import { Context } from "../../../store/appContext";
+import { TicketStatusColor } from '../../../constants/ticketStatusColor';
 import { useNavigate } from "react-router-dom";
-import { padTo2Digits, formatDate } from "../../utils/my-functions";
+import { padTo2Digits, formatDate } from "../../../../utils/my-functions";
 
 export const TicketSmallEmployee = (props) => {
     const { actions, store } = useContext(Context);

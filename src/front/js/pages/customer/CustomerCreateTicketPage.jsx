@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
-import UploadWidget from "../../component/UploadWidget";
-import { PageTitle } from "../../component/PageTitle";
-import CreateTicketDescription from "../../../assets/img/help_description/Create-a-Ticket-Google-Docs.png";
-import CreateTicketIMG from "../../../assets/img/help_description/CreateTicketHelpIMG.png"
+import { UploadWidget } from "../../components/ui/UploadWidget";
+// TODO: import { PageTitle } from "../../component/PageTitle";
+// TODO: import CreateTicketDescription from "../../../assets/img/help_description/Create-a-Ticket-Google-Docs.png";
+// TODO: import CreateTicketIMG from "../../../assets/img/help_description/CreateTicketHelpIMG.png"
 
 export const CustomerCreateTicketPage = () => {
     const { store, actions } = useContext(Context);
